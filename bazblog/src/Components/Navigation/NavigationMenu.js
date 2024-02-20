@@ -10,7 +10,7 @@ import PendingIcon from "@mui/icons-material/Pending"
 
 export const navigationMenu = [
     {
-        title: "Home",
+        title: "Главная",
         icon: <HomeIcon />,
         path: "/home"
     },
@@ -20,12 +20,12 @@ export const navigationMenu = [
         path: "/explore"
     },
     {
-        title: "Notifications",
+        title: "Уведомления",
         icon: <NotificationIcon />,
         path: "/notifications"
     },
     {
-        title: "Messages",
+        title: "Сообщения",
         icon: <MessageIcon />,
         path: "/messages"
     },
@@ -40,7 +40,7 @@ export const navigationMenu = [
         path: "/communities"
     },
     {
-        title: "Verifies",
+        title: "Верификация",
         icon: <VerifiedIcon />,
         path: "/verified"
     },
