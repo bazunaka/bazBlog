@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import ImageIcon from '@mui/icons-material/Image'
 import FmdGoodIcon from '@mui/icons-material/FmdGood'
 import TagFacesIcon from '@mui/icons-material/TagFaces'
+import TweetCard from './TweetCard'
 
 const validationSchema = Yup.object().shape({
     content: Yup.string().required("Требуется текст блога")
@@ -84,7 +85,7 @@ const HomeSection = () => {
                 </div>
             </section>
             <section >
-
+<TweetCard />
             </section>
         </div>
     );
