@@ -15,7 +15,7 @@ const Navigation = () => {
     };
     const navigate = useNavigate()
 
-    const handleLogout=()=>{
+    const handleLogout = () => {
         console.log("logout")
         handleClose()
     }
@@ -23,7 +23,7 @@ const Navigation = () => {
         <div className='h-screen sticky top-0'>
             <div>
                 <div className='py-5'>
-                    <img src='' alt='Тут картинка' />
+                    <img src={require('./../../img/e7c5c1efbe0744708b505611d6b20517.png')} alt='' />
                 </div>
                 <div className='space-y-6'>
                     {navigationMenu.map((item) => <div className='cursor-pointer flex space-x-3
