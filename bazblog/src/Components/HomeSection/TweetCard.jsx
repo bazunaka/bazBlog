@@ -49,7 +49,7 @@ const TweetCard = () => {
                         <div className='flex cursor-pointer items-center space-x-2'>
                             <span className='font-semibold'>Code with Bazunaka!</span>
                             <span className='text-gray-600'>@Bazunaka . 2мин</span>
-                            <img className='ml-2 w-5 h-5' src="../../img/verify_icon_227246.png" alt="" />
+                            <img className='ml-2 w-5 h-5' src={require('./../../img/verify_icon_227246.png')} alt="" />
                         </div>
                         <div>
                             <Button id="basic-button" aria-controls={open ? 'basic-menu' : undefined}
@@ -73,7 +73,7 @@ const TweetCard = () => {
                     <div className='mt-2'>
                         <div className='cursor-pointer'>
                             <p className='mb-2 p-0'>Тестовое сообщение!</p>
-                            <img className='w-[28rem] border border-gray-400 p-5 rounded-md' src="../../img/verify_icon_227246.png" alt="" />
+                            <img className='w-[28rem] border border-gray-400 p-5 rounded-md' src={require('./../../img/Vw6h8fR2Ic1urCfu.png')} alt="" />
                         </div>
                         <div className='py-5 flex flex-wrap justify-between items-center'>
                             <div className='space-x-3 flex items-center text-gray-600'>
