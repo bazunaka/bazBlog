@@ -34,7 +34,7 @@ const TweetCard = () => {
     }
 
     const handleLiketweet = () => {
-
+        console.log("like tweet")
     }
     return (
         <div className=''>
@@ -91,6 +91,13 @@ const TweetCard = () => {
                                     onClick={handleLiketweet} /> : <FavoriteBorderIcon className='cursor-pointer'
                                         onClick={handleLiketweet} />}
                                 <p>54</p>
+                            </div>
+                            <div className='space-x-3 flex items-center text-gray-600'>
+                                <BarChartIcon className='cursor-pointer' onClick={handleOpenReplyModel} />
+                                <p>430</p>
+                            </div>
+                            <div className='space-x-3 flex items-center text-gray-600'>
+                                <FileUploadIcon className='cursor-pointer' onClick={handleOpenReplyModel} />
                             </div>
                         </div>
                     </div>

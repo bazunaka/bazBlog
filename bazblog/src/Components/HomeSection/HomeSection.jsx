@@ -85,7 +85,7 @@ const HomeSection = () => {
                 </div>
             </section>
             <section >
-<TweetCard />
+                {[1, 1, 1, 1, 1].map((item) => <TweetCard />)}
             </section>
         </div>
     );
