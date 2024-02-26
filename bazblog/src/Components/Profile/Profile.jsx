@@ -13,6 +13,9 @@ const Profile = () => {
                 <KeyboardBackspaceIcon className='cursor-pointer' onClick={handleBack} />
                 <h1 className='py-5 text-xl font-bold opacity-90 ml-5'>Code with Bazunaka</h1>
             </section>
+            <section>
+                <img className='w-[100%] h-[15rem] object-cover' src={require('./../../img/0bb51823-25ca-43d6-93f9-23ca920a920c.jpg')} alt="" />
+            </section>
         </div>
     )
 }

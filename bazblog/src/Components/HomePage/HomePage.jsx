@@ -15,7 +15,7 @@ const HomePage = () => {
       <Grid item xs={12} lg={6} className='px-5 lg:px-9 hidden lg:block w-full relative'>
         <Routes>
           <Route path="/" element={<HomeSection />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/profile/:id" element={<Profile />}></Route>
         </Routes>
       </Grid>
       <Grid item xs={0} lg={3} className='hidden lg:block w-full relative'>
