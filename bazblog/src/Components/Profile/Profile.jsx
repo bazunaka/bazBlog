@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from 'react-router-dom';
-import { Avatar, Button, Box, Tab, Tabs } from '@mui/material'
+import { Avatar, Button } from '@mui/material'
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
 const Profile = () => {
 
-    const [tabValue, setTabValue] = useState("1")
+    // const [tabValue, setTabValue] = useState("1")
 
     const navigate = useNavigate();
 
@@ -29,12 +31,12 @@ const Profile = () => {
     //     const [value, setValue] = React.useState('1');
 
     const handleTabChange = (event, newValue) => {
-        setValue(newValue);
+        // setValue(newValue);
 
-        if(newValue===4){
+        if (newValue === 4) {
             console.log("likes twit")
         }
-        else if(newValue===1){
+        else if (newValue === 1) {
             console.log("users twits")
         }
     };
@@ -99,9 +101,9 @@ const Profile = () => {
             </section>
             <section>
                 <Box sx={{ width: '100%', typography: 'body1' }}>
-                    <TabContext value={tabValue}>
+                    <TabContext value="1">
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                            <TabList onChange={handleTabChange} aria-label="lab API tabs example">
+                            <TabList onClick={handleTabChange} aria-label="lab API tabs example">
                                 <Tab label="Item One" value="1" />
                                 <Tab label="Item Two" value="2" />
                                 <Tab label="Item Three" value="3" />

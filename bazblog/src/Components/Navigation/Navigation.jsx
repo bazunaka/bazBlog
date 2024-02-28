@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { navigationMenu } from './NavigationMenu'
 import { useNavigate } from 'react-router-dom'
 import { Avatar, Button, Menu, MenuItem } from '@mui/material'
