@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useNavigate } from 'react-router-dom';
-import { Avatar, Button } from '@mui/material'
+import { Avatar, Button, Box, Tab } from '@mui/material'
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
+// import Box from '@mui/material/Box';
+// import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
 const Profile = () => {
 
-    // const [tabValue, setTabValue] = useState("1")
+    const [tabValue, setTabValue] = useState("1")
 
     const navigate = useNavigate();
 
@@ -27,18 +27,15 @@ const Profile = () => {
         console.log("follow user")
     }
 
-    // export default function LabTabs() {
-    //     const [value, setValue] = React.useState('1');
-
     const handleTabChange = (event, newValue) => {
-        // setValue(newValue);
+        setTabValue(newValue);
 
-        if (newValue === 4) {
-            console.log("likes twit")
-        }
-        else if (newValue === 1) {
-            console.log("users twits")
-        }
+        // if (newValue === 4) {
+        //     console.log("likes twit")
+        // }
+        // else if (newValue === 1) {
+        //     console.log("users twits")
+        // }
     };
     return (
         <div>
@@ -101,17 +98,19 @@ const Profile = () => {
             </section>
             <section>
                 <Box sx={{ width: '100%', typography: 'body1' }}>
-                    <TabContext value="1">
+                    <TabContext value={tabValue}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList onClick={handleTabChange} aria-label="lab API tabs example">
-                                <Tab label="Item One" value="1" />
-                                <Tab label="Item Two" value="2" />
-                                <Tab label="Item Three" value="3" />
+                                <Tab label="Твиты" value="1" />
+                                <Tab label="Ответы" value="2" />
+                                <Tab label="Медиа" value="3" />
+                                <Tab label="Понравилось" value="4" />
                             </TabList>
                         </Box>
-                        <TabPanel value="1">Item One</TabPanel>
-                        <TabPanel value="2">Item Two</TabPanel>
-                        <TabPanel value="3">Item Three</TabPanel>
+                        <TabPanel value="1">Твиты пользователя</TabPanel>
+                        <TabPanel value="2">Ответы пользователя</TabPanel>
+                        <TabPanel value="3">Загруженные медиа</TabPanel>
+                        <TabPanel value="4">Понравившиеся публикации</TabPanel>
                     </TabContext>
                 </Box>
             </section>
