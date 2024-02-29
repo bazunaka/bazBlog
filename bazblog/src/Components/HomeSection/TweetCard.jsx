@@ -71,7 +71,7 @@ const TweetCard = () => {
                         </div>
                     </div>
                     <div className='mt-2'>
-                        <div className='cursor-pointer'>
+                        <div onClick={() => navigate(`/tweet/${3}`)} className='cursor-pointer'>
                             <p className='mb-2 p-0'>Тестовое сообщение!</p>
                             <img className='w-[28rem] border border-gray-400 p-5 rounded-md' src={require('./../../img/Vw6h8fR2Ic1urCfu.png')} alt="" />
                         </div>
