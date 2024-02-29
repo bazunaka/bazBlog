@@ -100,7 +100,7 @@ const Profile = () => {
                 <Box sx={{ width: '100%', typography: 'body1' }}>
                     <TabContext value={tabValue}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                            <TabList onClick={handleTabChange} aria-label="lab API tabs example">
+                            <TabList onChange={handleTabChange} aria-label="lab API tabs example">
                                 <Tab label="Твиты" value="1" />
                                 <Tab label="Ответы" value="2" />
                                 <Tab label="Медиа" value="3" />
