@@ -5,11 +5,10 @@ import { Avatar, Button, Box, Tab } from '@mui/material'
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-// import Box from '@mui/material/Box';
-// import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import TweetCard from '../HomeSection/TweetCard'
 
 const Profile = () => {
 
@@ -107,7 +106,7 @@ const Profile = () => {
                                 <Tab label="Понравилось" value="4" />
                             </TabList>
                         </Box>
-                        <TabPanel value="1">Твиты пользователя</TabPanel>
+                        <TabPanel value="1">{[1, 1, 1, 1].map((item) => <TweetCard />)}</TabPanel>
                         <TabPanel value="2">Ответы пользователя</TabPanel>
                         <TabPanel value="3">Загруженные медиа</TabPanel>
                         <TabPanel value="4">Понравившиеся публикации</TabPanel>
