@@ -9,6 +9,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import TweetCard from '../HomeSection/TweetCard'
+import ProfileModal from './ProfileModal';
 
 const Profile = () => {
 
@@ -95,7 +96,7 @@ const Profile = () => {
                     </div>
                 </div>
             </section>
-            <section>
+            <section className='py-5'>
                 <Box sx={{ width: '100%', typography: 'body1' }}>
                     <TabContext value={tabValue}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -112,6 +113,9 @@ const Profile = () => {
                         <TabPanel value="4">Понравившиеся публикации</TabPanel>
                     </TabContext>
                 </Box>
+            </section>
+            <section>
+                <ProfileModal />
             </section>
         </div>
     )
