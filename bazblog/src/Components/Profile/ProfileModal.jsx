@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { useFormik } from 'formik'
-import { IconButton, TextField } from '@mui/material';
+import { IconButton, TextField, Avatar } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
@@ -78,6 +78,11 @@ export default function ProfileModal() {
                     <input type="file" className='absolute top-0 left-0 w-full opacity-0 cursor-pointer' name='backgroundImage' onChange={handleImageChange} />
                   </div>
                 </div>
+                <div className='w-full transform -translate-y-20 ml-4 h-[6rem]'>
+                  <div className='relative'>
+                    <Avatar sx={{ width: "10rem", height: "10rem", border: "4px solid white" }} src="" alt="code with Bazunaka" />
+                  </div>
+                </div>
               </React.Fragment>
               <div className='space-y-3'>
                 <TextField
@@ -135,11 +140,7 @@ export default function ProfileModal() {
                 </p>
               </div>
             </div>
-            <div className='w-full transform -translate-y-20 ml-4 h-[6rem]'>
-              <div className='relative'>
 
-              </div>
-            </div>
           </form>
         </Box>
       </Modal>
