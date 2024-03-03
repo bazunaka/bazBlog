@@ -20,15 +20,13 @@ const style = {
   borderRadius: 4
 };
 
-const handleSubmit = () => {
-  console.log("Submitted");
+const handleSubmit = (values) => {
+  console.log("Submitted", values);
 }
 
-export default function ProfileModal() {
-  const [open, setOpen] = React.useState(false);
+export default function ProfileModal({ open, handleClose }) {
+  // const [open, setOpen] = React.useState(false);
   const [uploading, setUploading] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const formik = useFormik({
     initialValues: {
@@ -39,7 +37,7 @@ export default function ProfileModal() {
       backgroundImage: "",
       image: ""
     },
-    onsubmit: handleSubmit
+    onSubmit: handleSubmit
   })
 
   const handleImageChange = (event) => {
@@ -52,9 +50,8 @@ export default function ProfileModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
-        open={true}
+        open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -65,8 +62,8 @@ export default function ProfileModal() {
               <div className='flex items-center space-x-3'>
                 <IconButton onClick={handleClose} aria-label='close'>
                   <CloseIcon />
-                  <p className=''>Редактировать профиль</p>
                 </IconButton>
+                <p className=''>Редактировать профиль</p>
               </div>
               <Button type='submit'>Сохранить</Button>
             </div>
@@ -81,6 +78,8 @@ export default function ProfileModal() {
                 <div className='w-full transform -translate-y-20 ml-4 h-[6rem]'>
                   <div className='relative'>
                     <Avatar sx={{ width: "10rem", height: "10rem", border: "4px solid white" }} src="" alt="code with Bazunaka" />
+                    <input type="file" className='absolute top-0 left-0 w-[10rem] h-full opacity-0 cursor-pointer' onChange={handleImageChange}
+                      name='image' />
                   </div>
                 </div>
               </React.Fragment>

@@ -17,11 +17,11 @@ const Profile = () => {
 
     const navigate = useNavigate();
 
-    const handleBack = () => navigate(-1);
+    const [openProfileModal, setOpenProfileModal] = useState(false);
+    const handleOpenProfileModel = () => setOpenProfileModal(true);
+    const handleClose = () => setOpenProfileModal(false);
 
-    const handleOpenProfileModel = () => {
-        console.log("open profile model")
-    }
+    const handleBack = () => navigate(-1);
 
     const handleFollowUser = () => {
         console.log("follow user")
@@ -50,15 +50,20 @@ const Profile = () => {
                 <div className='flex justify-between items-start mt-5 h-[5rem]'>
                     <Avatar className='transform -translate-y-24' alt="code with Bazunaka" src=""
                         sx={{ width: "10rem", height: "10rem", border: "4px solid white" }} />
-                    {true ? <Button className='rounded-full' variant='contained'
-                        onClick={handleOpenProfileModel}
-                        sx={{ borderRadius: "20px" }} >
-                        Редактировать профиль
-                    </Button> : <Button className='rounded-full' variant='contained'
-                        onClick={handleFollowUser}
-                        sx={{ borderRadius: "20px" }} >
-                        {true ? "Подписаться" : "Отписаться"}
-                    </Button>}
+                    {true ? (
+                        <Button
+                            variant='contained'
+                            onClick={handleOpenProfileModel}
+                            sx={{ borderRadius: "20px" }} >
+                            Редактировать профиль
+                        </Button>
+                    ) : (
+                        <Button
+                            variant='contained'
+                            onClick={handleFollowUser}
+                            sx={{ borderRadius: "20px" }} >
+                            {true ? "Подписаться" : "Отписаться"}
+                        </Button>)}
                 </div>
                 <div>
                     <div className='flex items-center'>
@@ -115,7 +120,7 @@ const Profile = () => {
                 </Box>
             </section>
             <section>
-                <ProfileModal />
+                <ProfileModal handleClose={handleClose} open={openProfileModal} />
             </section>
         </div>
     )
