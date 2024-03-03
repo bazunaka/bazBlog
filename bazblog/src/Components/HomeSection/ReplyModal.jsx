@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import { Avatar } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import {Avatar} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
 import ImageIcon from '@mui/icons-material/Image'
 import FmdGoodIcon from '@mui/icons-material/FmdGood'
 import TagFacesIcon from '@mui/icons-material/TagFaces'
-import { useFormik } from 'formik'
+import {useFormik} from 'formik'
 
 
 const style = {
@@ -24,7 +24,7 @@ const style = {
     borderRadius: 4,
 };
 
-export default function ReplyModal({ handleClose, open }) {
+export default function ReplyModal({handleClose, open}) {
     const navigate = useNavigate()
 
     const [uploadingImage, setUploadingImage] = useState(false);
@@ -61,13 +61,14 @@ export default function ReplyModal({ handleClose, open }) {
             >
                 <Box sx={style}>
                     <div className='flex space-x-5'>
-                        <Avatar className='cursor-pointer' alt='' src='' onClick={() => navigate(`/profile/${6}`)} />
+                        <Avatar className='cursor-pointer' alt='' src='' onClick={() => navigate(`/profile/${6}`)}/>
                         <div className='w-full'>
                             <div className='flex justify-between items-center'>
                                 <div className='flex cursor-pointer items-center space-x-2'>
                                     <span className='font-semibold'>Code with Bazunaka!</span>
                                     <span className='text-gray-600'>@Bazunaka . 2мин</span>
-                                    <img className='ml-2 w-5 h-5' src={require('./../../img/verify_icon_227246.png')} alt="" />
+                                    <img className='ml-2 w-5 h-5' src={require('./../../img/verify_icon_227246.png')}
+                                         alt=""/>
                                 </div>
 
                             </div>
@@ -81,37 +82,37 @@ export default function ReplyModal({ handleClose, open }) {
                     </div>
                     <section className={`py-10`}>
                         <div className='flex space-x-5'>
-                            <Avatar alt='username' src='' />
+                            <Avatar alt='username' src=''/>
                             <div className='w-full'>
                                 <form onSubmit={formik.handleSubmit}>
-                                    <div >
+                                    <div>
                                         <input type="text" name='content' placeholder='Что нового?'
-                                            className={`border-none outline-none text-xl bg-transparent`}
-                                            {...formik.getFieldProps("content")} />
+                                               className={`border-none outline-none text-xl bg-transparent`}
+                                               {...formik.getFieldProps("content")} />
                                         {formik.errors.content && formik.touched.content && (
                                             <span className='text-red-500'>{formik.errors.content}</span>
                                         )}
                                     </div>
                                     <div>
-                                        <img src="" alt="" />
+                                        <img src="" alt=""/>
                                     </div>
                                     <div className='flex justify-between items-center mt-5'>
                                         <div className='flex space-x-5 items-center'>
                                             <label className='flex items-center space-x-2 rounded-md cursor-pointer'>
-                                                <ImageIcon className='text-[#1d9bf0]' />
+                                                <ImageIcon className='text-[#1d9bf0]'/>
                                                 <input type="file" name='imageFile' className='hidden'
-                                                    onChange={handleSelectImage} />
+                                                       onChange={handleSelectImage}/>
                                             </label>
-                                            <FmdGoodIcon className='text-[#1d9bf0]' />
-                                            <TagFacesIcon className='text-[#1d9bf0]' />
+                                            <FmdGoodIcon className='text-[#1d9bf0]'/>
+                                            <TagFacesIcon className='text-[#1d9bf0]'/>
                                         </div>
                                         <div>
                                             <Button sx={{
                                                 width: "100%", borderRadius: "20px", paddingY: "8px",
                                                 paddingX: "20px", bgcolor: "#0F4C75", color: "#BBE1FA"
                                             }}
-                                                variant='contained'
-                                                type='submit'>
+                                                    variant='contained'
+                                                    type='submit'>
                                                 Опубликовать
                                             </Button>
                                         </div>

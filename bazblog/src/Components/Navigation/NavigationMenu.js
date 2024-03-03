@@ -11,47 +11,47 @@ import PendingIcon from "@mui/icons-material/Pending"
 export const navigationMenu = [
     {
         title: "Главная",
-        icon: <HomeIcon />,
+        icon: <HomeIcon/>,
         path: "/home"
     },
     {
         title: "Explore",
-        icon: <ExploreIcon />,
+        icon: <ExploreIcon/>,
         path: "/explore"
     },
     {
         title: "Уведомления",
-        icon: <NotificationIcon />,
+        icon: <NotificationIcon/>,
         path: "/notifications"
     },
     {
         title: "Сообщения",
-        icon: <MessageIcon />,
+        icon: <MessageIcon/>,
         path: "/messages"
     },
     {
         title: "Lists",
-        icon: <ListAltIcon />,
+        icon: <ListAltIcon/>,
         path: "/list"
     },
     {
         title: "Communities",
-        icon: <GroupIcon />,
+        icon: <GroupIcon/>,
         path: "/communities"
     },
     {
         title: "Верификация",
-        icon: <VerifiedIcon />,
+        icon: <VerifiedIcon/>,
         path: "/verified"
     },
     {
         title: "Profile",
-        icon: <AccountCircleIcon />,
+        icon: <AccountCircleIcon/>,
         path: "/profile"
     },
     {
         title: "More",
-        icon: <PendingIcon />,
+        icon: <PendingIcon/>,
         path: "/more"
     },
 ]

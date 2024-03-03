@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { navigationMenu } from './NavigationMenu'
-import { useNavigate } from 'react-router-dom'
-import { Avatar, Button, Menu, MenuItem } from '@mui/material'
+import React, {Component} from 'react'
+import {navigationMenu} from './NavigationMenu'
+import {useNavigate} from 'react-router-dom'
+import {Avatar, Button, Menu, MenuItem} from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
 const Navigation = () => {
@@ -23,12 +23,12 @@ const Navigation = () => {
         <div className='h-screen sticky top-0'>
             <div>
                 <div className='py-5'>
-                    <img src={require('./../../img/e7c5c1efbe0744708b505611d6b20517.png')} alt='' />
+                    <img src={require('./../../img/e7c5c1efbe0744708b505611d6b20517.png')} alt=''/>
                 </div>
                 <div className='space-y-6'>
                     {navigationMenu.map((item) => <div className='cursor-pointer flex space-x-3
                     items-center' onClick={() => item.title === "Profile" ? navigate(`/profile/${5}`)
-                            : navigate(item.path)}>
+                        : navigate(item.path)}>
                         {item.icon}
                         <p className='text-xl'>{item.title}</p>
                     </div>)}
@@ -38,21 +38,21 @@ const Navigation = () => {
                         width: "100%", borderRadius: "29px", py: "15px",
                         bgcolor: "#0F4C75", color: "#BBE1FA"
                     }}
-                        variant='contained'>
+                            variant='contained'>
                         Написать
                     </Button>
                 </div>
             </div>
             <div className='flex items-center justify-between'>
                 <div className='flex items-center space-x-3'>
-                    <Avatar alt='username' src='' />
+                    <Avatar alt='username' src=''/>
                     <div>
-                        <span>Bazunaka</span><br />
+                        <span>Bazunaka</span><br/>
                         <span className='opacity-70'>@Bazunaka</span>
                     </div>
                     <Button id="basic-button" aria-controls={open ? 'basic-menu' : undefined}
-                        aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
-                        <MoreHorizIcon />
+                            aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
+                        <MoreHorizIcon/>
                     </Button>
                     <Menu
                         id="basic-menu"
