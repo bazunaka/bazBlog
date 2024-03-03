@@ -1,8 +1,14 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { Avatar } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import ImageIcon from '@mui/icons-material/Image'
+import FmdGoodIcon from '@mui/icons-material/FmdGood'
+import TagFacesIcon from '@mui/icons-material/TagFaces'
+import { useFormik } from 'formik'
+
 
 const style = {
     position: 'absolute',
@@ -23,6 +29,32 @@ export default function ReplyModal() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const navigate = useNavigate()
+
+    const [uploadingImage, setUploadingImage] = useState(false);
+    const [selectImage, setSelectedImage] = useState("");
+
+    const handleSubmit = (values) => {
+        console.log("handleSubmit", values)
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            content: "",
+            image: "",
+            tweetId: 4
+        },
+        onSubmit: handleSubmit
+    })
+
+    const handleSelectImage = (event) => {
+        setUploadingImage(true)
+        const imgUrl = event.target.files[0]
+        formik.setFieldValue("image", imgUrl)
+        setSelectedImage(imgUrl)
+        setUploadingImage(false)
+    }
+
     return (
         <div>
             <Modal
@@ -41,58 +73,57 @@ export default function ReplyModal() {
                                     <span className='text-gray-600'>@Bazunaka . 2мин</span>
                                     <img className='ml-2 w-5 h-5' src={require('./../../img/verify_icon_227246.png')} alt="" />
                                 </div>
-                                <div>
-                                    <Button id="basic-button" aria-controls={open ? 'basic-menu' : undefined}
-                                        aria-haspopup="true" aria-expanded={open ? 'true' : undefined} onClick={handleClick}>
-                                        <MoreHorizIcon />
-                                    </Button>
-                                    <Menu
-                                        id="basic-menu"
-                                        anchorEl={anchorEl}
-                                        open={open}
-                                        onClose={handleClose}
-                                        MenuListProps={{
-                                            'aria-labelledby': 'basic-button',
-                                        }}
-                                    >
-                                        <MenuItem onClick={handleDeleteTweet}>Удалить</MenuItem>
-                                        <MenuItem onClick={handleDeleteTweet}>Отредектировать</MenuItem>
-                                    </Menu>
-                                </div>
+
                             </div>
                             <div className='mt-2'>
                                 <div onClick={() => navigate(`/tweet/${3}`)} className='cursor-pointer'>
                                     <p className='mb-2 p-0'>Тестовое сообщение!</p>
-                                    <img className='w-[28rem] border border-gray-400 p-5 rounded-md' src={require('./../../img/Vw6h8fR2Ic1urCfu.png')} alt="" />
-                                </div>
-                                <div className='py-5 flex flex-wrap justify-between items-center'>
-                                    <div className='space-x-3 flex items-center text-gray-600'>
-                                        <ChatBubbleOutlineIcon className='cursor-pointer' onClick={handleOpenReplyModel} />
-                                        <p>43</p>
-                                    </div>
-                                    <div className={`${true ? "text-pink-600" : "text-gray-600"} space-x-3 flex items-center`}>
-                                        <RepeatIcon
-                                            onClick={handleCreateRetweet}
-                                            className='cursor-pointer' />
-                                        <p>54</p>
-                                    </div>
-                                    <div className={`${true ? "text-pink-600" : "text-gray-600"} space-x-3 flex items-center`}>
-                                        {true ? <FavoriteIcon className='cursor-pointer'
-                                            onClick={handleLiketweet} /> : <FavoriteBorderIcon className='cursor-pointer'
-                                                onClick={handleLiketweet} />}
-                                        <p>54</p>
-                                    </div>
-                                    <div className='space-x-3 flex items-center text-gray-600'>
-                                        <BarChartIcon className='cursor-pointer' onClick={handleOpenReplyModel} />
-                                        <p>430</p>
-                                    </div>
-                                    <div className='space-x-3 flex items-center text-gray-600'>
-                                        <FileUploadIcon className='cursor-pointer' onClick={handleOpenReplyModel} />
-                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                    <section className={`py-10`}>
+                        <div className='flex space-x-5'>
+                            <Avatar alt='username' src='' />
+                            <div className='w-full'>
+                                <form onSubmit={formik.handleSubmit}>
+                                    <div >
+                                        <input type="text" name='content' placeholder='Что нового?'
+                                            className={`border-none outline-none text-xl bg-transparent`}
+                                            {...formik.getFieldProps("content")} />
+                                        {formik.errors.content && formik.touched.content && (
+                                            <span className='text-red-500'>{formik.errors.content}</span>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <img src="" alt="" />
+                                    </div>
+                                    <div className='flex justify-between items-center mt-5'>
+                                        <div className='flex space-x-5 items-center'>
+                                            <label className='flex items-center space-x-2 rounded-md cursor-pointer'>
+                                                <ImageIcon className='text-[#1d9bf0]' />
+                                                <input type="file" name='imageFile' className='hidden'
+                                                    onChange={handleSelectImage} />
+                                            </label>
+                                            <FmdGoodIcon className='text-[#1d9bf0]' />
+                                            <TagFacesIcon className='text-[#1d9bf0]' />
+                                            <div>
+                                                <Button sx={{
+                                                    width: "100%", borderRadius: "20px", paddingY: "8px",
+                                                    paddingX: "20px", bgcolor: "#0F4C75", color: "#BBE1FA"
+                                                }}
+                                                    variant='contained'
+                                                    type='submit'>
+                                                    Опубликовать
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
                 </Box>
             </Modal>
         </div>
