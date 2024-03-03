@@ -24,11 +24,7 @@ const style = {
     borderRadius: 4,
 };
 
-export default function ReplyModal() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
+export default function ReplyModal({ handleClose, open }) {
     const navigate = useNavigate()
 
     const [uploadingImage, setUploadingImage] = useState(false);
@@ -58,7 +54,7 @@ export default function ReplyModal() {
     return (
         <div>
             <Modal
-                open={true}
+                open={open}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
@@ -108,16 +104,16 @@ export default function ReplyModal() {
                                             </label>
                                             <FmdGoodIcon className='text-[#1d9bf0]' />
                                             <TagFacesIcon className='text-[#1d9bf0]' />
-                                            <div>
-                                                <Button sx={{
-                                                    width: "100%", borderRadius: "20px", paddingY: "8px",
-                                                    paddingX: "20px", bgcolor: "#0F4C75", color: "#BBE1FA"
-                                                }}
-                                                    variant='contained'
-                                                    type='submit'>
-                                                    Опубликовать
-                                                </Button>
-                                            </div>
+                                        </div>
+                                        <div>
+                                            <Button sx={{
+                                                width: "100%", borderRadius: "20px", paddingY: "8px",
+                                                paddingX: "20px", bgcolor: "#0F4C75", color: "#BBE1FA"
+                                            }}
+                                                variant='contained'
+                                                type='submit'>
+                                                Опубликовать
+                                            </Button>
                                         </div>
                                     </div>
                                 </form>

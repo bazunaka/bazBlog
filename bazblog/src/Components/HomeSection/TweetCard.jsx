@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RepeatIcon from '@mui/icons-material/Repeat'
 import { Button, Menu, MenuItem, Avatar } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
@@ -14,6 +14,10 @@ const TweetCard = () => {
     const navigate = useNavigate()
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const [openReplyModal, setOpenReplyModal] = useState(false);
+    const handleOpenReplyModel = () => setOpenReplyModal(true);
+    const handleCloseReplyModal = () => setOpenReplyModal(false);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -24,10 +28,6 @@ const TweetCard = () => {
     const handleDeleteTweet = () => {
         console.log("delete tweet")
         handleClose()
-    }
-
-    const handleOpenReplyModel = () => {
-        console.log("open model")
     }
 
     const handleCreateRetweet = () => {
@@ -105,7 +105,7 @@ const TweetCard = () => {
                 </div>
             </div>
             <section>
-                <ReplyModal />
+                <ReplyModal open={openReplyModal} handleClose={handleCloseReplyModal} />
             </section>
         </React.Fragment>
     )
