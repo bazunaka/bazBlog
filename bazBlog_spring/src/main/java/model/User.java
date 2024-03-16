@@ -1,10 +1,11 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,4 +20,21 @@ public class User {
     private String website;
     private String birthDate;
     private String image;
+    private String backgroundImage;
+    private String bio;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Tweet> tweet = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Like> likes = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany
+    private List<User> followers = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany
+    private List<User> followings = new ArrayList<>();
 }
